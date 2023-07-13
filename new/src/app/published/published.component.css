@@ -1,0 +1,17 @@
+h2 {
+  text-align: left;
+}
+.newTask {
+  padding-bottom: 40px;
+}
+.tui-list__description {
+  font-size: 15px;
+  color: #686868;
+  width: 50%;
+}
+.changeColor {
+  background-color: #3089d6;
+}
+.tui-list__item-title {
+  font-size: 25px;
+}

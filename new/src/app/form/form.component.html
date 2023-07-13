@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+        href="C:\Users\d.melashvili\Desktop\git\rep-1\angular + taiga\proj1\src\app\form\form.component.css">
+</head>
+
+
+<body>
+
+
+
+    <div class="container">
+
+        <h1 class=".tui-form__header">Создание задачи
+        </h1>
+
+        <form class="b-form" [formGroup]="taskForm">
+            <tui-input tuiTextfieldSize="l" class="tui-space_top-12" formControlName="nameValue">Название
+                <input tuiTextfield />
+            </tui-input>
+
+            <tui-input tuiTextfieldSize="l" class="tui-space_top-4" formControlName="urlValue">URL</tui-input>
+            <tui-input tuiTextfieldSize="l" class="tui-space_top-4" formControlName="placeValue">Место</tui-input>
+
+            <tui-input-date-time class="tui-space_top-4" formControlName="fromValue">
+                Дата начала
+                <input tuiTextfield class="td" />
+            </tui-input-date-time>
+
+            <tui-input-date-time class="tui-space_top-4" formControlName="toValue">
+                Дата окончания
+                <input tuiTextfield class="td" />
+            </tui-input-date-time>
+
+            <tui-select tuiTextfieldSize="l" class="tui-space_vertical-4" formControlName="priorityValue"
+                [tuiTextfieldLabelOutside]="true">
+                Приоритет
+                <input tuiTextfield placeholder="Приоритет" />
+                <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+            </tui-select>
+
+            <div tuiGroup class="group" [collapsed]="true">
+                <tui-radio-block *ngFor="let i of status" formControlName="statusValue" contentAlign="right" size="l"
+                    [item]="i" [hideRadio]="true">
+                    {{ i }}
+                </tui-radio-block>
+            </div>
+
+            <div class="tui-space_top-4">
+                <tui-input-slider class="tui-space_top-4" class="control" [min]="min" [max]="max" [steps]="steps"
+                    [quantum]="quantum" formControlName="controlValue" [tuiHintContent]="hint">
+                    Процент выполнения
+                </tui-input-slider>
+            </div>
+
+            <tui-text-area tuiTextfieldSize="l" class="tui-space_top-4"
+                formControlName="infoValue">Описание</tui-text-area>
+
+
+            <button tuiButton type="button" appearance="secondary-destructive" class="tui-space_top-5"
+                iconRight="tuiIconCheck" (click)="submitForm()">
+                Создать
+            </button>
+
+        </form>
+
+    </div>
+
+</body>

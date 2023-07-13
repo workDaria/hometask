@@ -1,0 +1,8 @@
+<tui-root>
+  <app-form (sendFormEvent)="onAddForm($event)"></app-form>
+  <div class="container">
+    <h2 class=".tui-form__header">Опубликованные задачи
+    </h2>
+    <app-published *ngFor="let form of formData" [form]="form!"></app-published>
+  </div>
+</tui-root>

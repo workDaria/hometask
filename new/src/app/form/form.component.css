@@ -1,0 +1,14 @@
+div {
+  background-color: #ffffff;
+}
+.td {
+  outline-color: aqua;
+  max-width: fit-content;
+}
+h1 {
+  font-size: 25px;
+  text-align: left;
+  color: #000000;
+  font-weight: 600;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

@@ -1,0 +1,33 @@
+<div class="tui-space_top-8">
+
+    <h2 class="tui-list__item-title"> {{form.nameValue}}
+        <tui-badge [status]="getPriority()" value="{{form.priorityValue}}" class="tui-space_right-2"></tui-badge>
+    </h2>
+
+    <div class="tui-list__description">
+        <b>Сроки:</b> {{form.fromValue}} - {{form.toValue}}
+    </div>
+
+    <div class="tui-list__description">
+        <b>URL:</b> {{form.urlValue}}
+    </div>
+
+    <div class="tui-list__description">
+        <b>Место:</b> {{form.placeValue}}
+    </div>
+
+    <div class="tui-list__description">
+        <b>Подробное описание:</b> {{form.infoValue}}
+    </div>
+
+    <div class="tui-list__description">
+        <b>Статус:</b> {{form.statusValue}}
+    </div>
+
+    <div class="tui-list__description">
+        <b>Процент выполнения:</b> {{form.controlValue}} %
+    </div>
+
+
+
+</div>

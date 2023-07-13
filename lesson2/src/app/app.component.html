@@ -1,0 +1,23 @@
+<form>
+  <label for="name">Имя:</label>
+  <input type="text" name="name"><br><br>
+  <label for="sex">Пол:</label>
+  <input type="radio" name="sex" id="male" value="male">
+  <label for="male">Мужской</label>
+  <input type="radio" name="sex" id="female" value="female">
+  <label for="female">Женский</label> <br><br>
+
+  <app-new-comp></app-new-comp>
+  <div app-new-comp2></div>
+  <div class="app-new-comp3"></div>
+
+  <label for="message">Сообщение:</label><br>
+  <textarea name="message" id="message" cols="30" rows="4"></textarea>
+  <br><br>
+  <input type="checkbox" name="newsletter" id="newsletter">
+  <label for="newsletter">Подписаться?</label><br><br>
+  <input type="submit" value="Submit">
+
+  <app-input-comp></app-input-comp>
+  
+  </form>
