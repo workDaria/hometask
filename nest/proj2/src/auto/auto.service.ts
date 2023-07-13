@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { GetAutoDTO, UpdateAutoDto } from "./dto/auto.dto";
+import { GetAutoDTO, UpdateAutoDto, DeleteDTO } from "./dto/auto.dto";
 
 
 @Injectable()
@@ -18,6 +18,6 @@ export class AutoService
 
     deleteAuto(name: string)
     {
-
+        return `Deleted car named ${name}`;
     }
 }

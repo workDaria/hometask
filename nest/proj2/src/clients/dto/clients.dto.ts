@@ -5,3 +5,19 @@ export class GetClientsDTO
     readonly email: string;
     readonly password: string;
 }
+
+export class UpdateClientDto
+{
+    name: string;
+    surname: string;
+    email: string;
+    password: string;
+}
+
+export class DeleteClientDTO
+{
+    name: string;
+    surname: string;
+    email: string;
+    password: string;
+}

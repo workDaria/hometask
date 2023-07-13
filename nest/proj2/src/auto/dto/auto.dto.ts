@@ -13,3 +13,11 @@ export class UpdateAutoDto
     color: string;
     engine: string;
 }
+
+export class DeleteDTO
+{
+    name: string;
+    model: string;
+    color: string;
+    engine: string;
+}

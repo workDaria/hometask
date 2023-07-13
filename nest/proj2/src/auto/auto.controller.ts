@@ -1,20 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Delete } from '@nestjs/common';
-import { GetAutoDTO, UpdateAutoDto } from "./dto/auto.dto";
+import { Controller, Get, Post, Body, Patch, Delete, Param } from '@nestjs/common';
+import { DeleteDTO, GetAutoDTO, UpdateAutoDto } from "./dto/auto.dto";
 import { AutoService } from "./auto.service";
 
 @Controller('auto')
 export class AutoController
 {
 
-    constructor(private readonly autoSRV: AutoService, private autoUPD: AutoService) { }
+    constructor(private readonly autoSRV: AutoService, private autoUPD: AutoService, private autoDEL: AutoService) { }
 
     @Get()   // выдает список
     getAutoList(): string
     {
-        return `Added cars: \n`;
+        return `The list of cars:\nCar1\nCar2\nCar3`;
     }
 
-    @Post()   // добавляет машину
+    @Post()   // добавляет 
     createAuto(@Body() data: GetAutoDTO): string
     {
         return this.autoSRV.createAuto(data);
@@ -26,7 +26,10 @@ export class AutoController
         return this.autoUPD.updateAuto(data.engine, data);
     }
 
-    @Delete()   // удаляет машину
-    deleteAuto() { }
+    @Delete(':name')   // удаляет по имени
+    deleteAuto(@Param('name') name: string): string
+    {
+        return this.autoDEL.deleteAuto(name);
+    }
 
 }
