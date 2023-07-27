@@ -14,6 +14,22 @@ export class GetBookingsDTO {
 
 }
 
+export class PostBookingsDTO { 
+
+    country: string
+    city: string
+
+    hotel_name: string
+    hotel_id: number
+
+    room_number: number
+    price: number
+    
+    dateFrom: Date
+    dateTo: Date
+    
+}
+
 export class DeleteBookingsDTO { 
 
     country: string
