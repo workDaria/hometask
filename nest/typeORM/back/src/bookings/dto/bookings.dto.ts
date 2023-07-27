@@ -1,10 +1,9 @@
 export class GetBookingsDTO { 
-
+ 
     readonly country: string
     readonly city: string
 
     readonly hotel_name: string
-    readonly hotel_id: number
 
     readonly room_number: number
     readonly price: number
@@ -20,7 +19,6 @@ export class PostBookingsDTO {
     city: string
 
     hotel_name: string
-    hotel_id: number
 
     room_number: number
     price: number
@@ -36,7 +34,6 @@ export class DeleteBookingsDTO {
     city: string
 
     hotel_name: string
-    hotel_id: number
 
     room_number: number
     price: number
@@ -46,13 +43,12 @@ export class DeleteBookingsDTO {
     
 }
 
-export class PatchBookingsDTO { 
+export class UpdateBookingsDTO { 
 
     country: string
     city: string
 
     hotel_name: string
-    hotel_id: number
 
     room_number: number
     price: number

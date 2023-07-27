@@ -6,6 +6,9 @@ import { CustomersModule } from './customers/customers.module';
 import * as process from 'process';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
+import { BookingsController } from './bookings/bookings.controller';
+import { BookingsService } from './bookings/bookings.service';
+import { BookingsModule } from './bookings/bookings.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -28,9 +31,10 @@ import { ConfigService } from '@nestjs/config';
         logging: true,
         synchronize: configService.get<boolean>('DB_SYNC')
       })
-    })
+    }),
+    BookingsModule
 ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, BookingsController],
+  providers: [AppService, BookingsService],
 })
 export class AppModule {}
