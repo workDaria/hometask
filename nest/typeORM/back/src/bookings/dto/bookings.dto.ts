@@ -15,16 +15,16 @@ export class GetBookingsDTO {
 
 export class PostBookingsDTO { 
 
-    country: string
-    city: string
+    readonly country: string
+    readonly city: string
 
-    hotel_name: string
+    readonly hotel_name: string
 
-    room_number: number
-    price: number
+    readonly room_number: number
+    readonly price: number
     
-    dateFrom: Date
-    dateTo: Date
+    readonly dateFrom: Date
+    readonly dateTo: Date
     
 }
 

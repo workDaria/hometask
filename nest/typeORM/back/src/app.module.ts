@@ -6,8 +6,8 @@ import { CustomersModule } from './customers/customers.module';
 import * as process from 'process';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
-import { BookingsController } from './bookings/bookings.controller';
-import { BookingsService } from './bookings/bookings.service';
+// import { BookingsController } from './bookings/bookings.controller';
+// import { BookingsService } from './bookings/bookings.service';
 import { BookingsModule } from './bookings/bookings.module';
 
 @Module({
@@ -34,7 +34,7 @@ import { BookingsModule } from './bookings/bookings.module';
     }),
     BookingsModule
 ],
-  controllers: [AppController, BookingsController],
-  providers: [AppService, BookingsService],
+  // controllers: [AppController, BookingsController],
+  // providers: [AppService, BookingsService],
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BookingsEntity } from './entities/bookings.entity';
 
+
 @Injectable()
 export class BookingsService {
     constructor(
@@ -12,13 +13,14 @@ export class BookingsService {
     ) {}
 
         async createBooking(data: PostBookingsDTO) {
-            const idIsRepeated = await this.bookingsRepository.findOne({
+            const roomIsTaken = await this.bookingsRepository.findOne({
                 where: {
                     room_number: data.room_number
                 }
             })
 
-            if (idIsRepeated) throw new BadRequestException('This room is already taken')
+            if (roomIsTaken) 
+            throw new BadRequestException('This room is already taken')
 
             const booking = await this.bookingsRepository.save({
                 country: data.country,
