@@ -27,6 +27,6 @@ export class BookingsController {
     
     @Patch()
     updateBooking(@Body() data: PatchBookingDTO): string {
-        return this.bookingService.updateBooking(customer_id, data)
+        return this.bookingService.updateBooking(data)
     }
 }
