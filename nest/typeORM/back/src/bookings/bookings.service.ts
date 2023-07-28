@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { GetBookingsDTO, PostBookingsDTO } from './dto/bookings.dto';
+import { PostBookingsDTO } from './dto/bookings.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BookingsEntity } from './entities/bookings.entity';
@@ -11,6 +11,12 @@ export class BookingsService {
         @InjectRepository(BookingsEntity)
         private bookingsRepository: Repository<BookingsEntity>
     ) {}
+
+
+        findBooking(customer_id) {
+            return this.bookingsRepository.findBy(customer_id)
+        }
+
 
         async createBooking(data: PostBookingsDTO) {
             const roomIsTaken = await this.bookingsRepository.findOne({

@@ -6,15 +6,12 @@ import { CustomersModule } from './customers/customers.module';
 import * as process from 'process';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
-// import { BookingsController } from './bookings/bookings.controller';
-// import { BookingsService } from './bookings/bookings.service';
 import { BookingsModule } from './bookings/bookings.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({
+  imports: [BookingsModule, CustomersModule, ConfigModule.forRoot({
     envFilePath: `.${process.env.ENVIRONMENT}.env`
     }), 
-    CustomersModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -32,9 +29,8 @@ import { BookingsModule } from './bookings/bookings.module';
         synchronize: configService.get<boolean>('DB_SYNC')
       })
     }),
-    BookingsModule
 ],
-  // controllers: [AppController, BookingsController],
-  // providers: [AppService, BookingsService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
