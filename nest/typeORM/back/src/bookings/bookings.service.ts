@@ -18,6 +18,10 @@ export class BookingsService {
         }
 
 
+        deleteBooking(customer_id) {
+            return this.bookingsRepository.remove(customer_id)
+        }
+
         async createBooking(data: PostBookingsDTO) {
             const roomIsTaken = await this.bookingsRepository.findOne({
                 where: {
