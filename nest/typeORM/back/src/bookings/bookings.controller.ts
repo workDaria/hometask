@@ -1,5 +1,5 @@
-import { Controller, Body, Post, Get, Param, Delete } from '@nestjs/common';
-import { PostBookingsDTO } from './dto/bookings.dto';
+import { Controller, Body, Post, Get, Param, Delete, Patch } from '@nestjs/common';
+import { PatchBookingDTO, PostBookingsDTO } from './dto/bookings.dto';
 
 @Controller('bookings')
 export class BookingsController {
@@ -10,7 +10,6 @@ export class BookingsController {
     findBooking(@Param('customer_id') customer_id: number) {
         return this.bookingService.findBooking(customer_id)
     }
-
 
    
     @Post()
@@ -25,4 +24,9 @@ export class BookingsController {
         return this.bookingService.deleteBooking(customer_id)
     }
 
+    
+    @Patch()
+    updateBooking(@Body() data: PatchBookingDTO): string {
+        return this.bookingService.updateBooking(customer_id, data)
+    }
 }

@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { PostBookingsDTO } from './dto/bookings.dto';
+import { PostBookingsDTO, PatchBookingDTO } from './dto/bookings.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BookingsEntity } from './entities/bookings.entity';
@@ -20,6 +20,16 @@ export class BookingsService {
 
         deleteBooking(customer_id) {
             return this.bookingsRepository.remove(customer_id)
+        }
+
+        async updateBooking(customer_id: number, data: PatchBookingDTO) {
+            await this.bookingsRepository.update(data, {
+                where: {
+                    customer_id
+                }
+            })
+
+            return {data}
         }
 
         async createBooking(data: PostBookingsDTO) {

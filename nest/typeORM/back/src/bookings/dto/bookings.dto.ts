@@ -13,7 +13,7 @@ export class PostBookingsDTO {
     
 }
 
-export class DeleteBookingsDTO { 
+export class PatchBookingDTO { 
 
     country: string
     city: string
