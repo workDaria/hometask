@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { CustomersModule } from './customers/customers.module';
 import * as process from 'process';
@@ -9,7 +7,10 @@ import { ConfigService } from '@nestjs/config';
 import { BookingsModule } from './bookings/bookings.module';
 
 @Module({
-  imports: [BookingsModule, CustomersModule, ConfigModule.forRoot({
+  imports: [
+    BookingsModule, 
+    CustomersModule,
+    ConfigModule.forRoot({
     envFilePath: `.${process.env.ENVIRONMENT}.env`
     }), 
     TypeOrmModule.forRootAsync({
@@ -30,7 +31,7 @@ import { BookingsModule } from './bookings/bookings.module';
       })
     }),
 ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

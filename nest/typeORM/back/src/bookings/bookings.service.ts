@@ -14,7 +14,7 @@ export class BookingsService {
 
 
         findBooking(customer_id) {
-            return this.bookingsRepository.findBy(customer_id)
+            return this.bookingsRepository.findOneBy({customer_id})
         }
 
 
@@ -22,15 +22,15 @@ export class BookingsService {
             return this.bookingsRepository.remove(customer_id)
         }
 
-        async updateBooking(customer_id: number, data: PatchBookingDTO) {
-            await this.bookingsRepository.update(data, {
-                where: {
-                    customer_id
-                }
-            })
+        // async updateBooking(customer_id: number, data: PatchBookingDTO) {
+        //     await this.bookingsRepository.update(data, {
+        //         where: {
+        //             customer_id
+        //         }
+        //     })
 
-            return {data}
-        }
+        //     return {data}
+        // }
 
         async createBooking(data: PostBookingsDTO) {
             const roomIsTaken = await this.bookingsRepository.findOne({
@@ -41,6 +41,7 @@ export class BookingsService {
 
             if (roomIsTaken) 
             throw new BadRequestException('This room is already taken')
+            
 
             const booking = await this.bookingsRepository.save({
                 country: data.country,
@@ -55,7 +56,12 @@ export class BookingsService {
                 dateTo: data.dateTo
             })
             
-            return {booking}
+            return { booking }
+        }
+
+
+        getAll() {
+            return this.bookingsRepository.find()
         }
 
 } 

@@ -1,20 +1,25 @@
-import { Controller, Body, Post, Get, Param, Delete, Patch } from '@nestjs/common';
+import { Controller, Body, Post, Get, Param, Delete, Patch,Inject } from '@nestjs/common';
 import { PatchBookingDTO, PostBookingsDTO } from './dto/bookings.dto';
+import { BookingsService } from './bookings.service';
 
 @Controller('bookings')
 export class BookingsController {
-
-    constructor(private readonly bookingService) {}
+    constructor(
+         public bookingService:BookingsService
+        ) {}
 
     @Get(':customer_id')
     findBooking(@Param('customer_id') customer_id: number) {
         return this.bookingService.findBooking(customer_id)
     }
 
+    @Get()
+    getAll() {
+        return this.bookingService.getAll()
+    }
    
     @Post()
-    createBooking(@Body() data: PostBookingsDTO): string
-    {
+    createBooking(@Body() data: PostBookingsDTO) {
         return this.bookingService.createBooking(data)
     }
 
@@ -25,8 +30,8 @@ export class BookingsController {
     }
 
     
-    @Patch()
-    updateBooking(@Body() data: PatchBookingDTO): string {
-        return this.bookingService.updateBooking(data)
-    }
+    // @Patch()
+    // updateBooking(@Body() data: PatchBookingDTO): string {
+    //     return this.bookingService.updateBooking(data)
+    // }
 }
